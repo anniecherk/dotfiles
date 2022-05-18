@@ -1,0 +1,31 @@
+software to install
+
+- [ ] iterm
+- [ ] things3
+- [ ] 1password
+- [ ] github desktop
+
+
+cmdln
+
+- [ ] brew
+- [ ] brew install just
+- [ ] brew install autojump
+- [ ] brew install bat
+- [ ] brew install wget
+- [ ] brew install tldr
+- [ ] $(brew --prefix)/opt/fzf/install
+
+config
+
+- set colemak
+- hotcorners for desktop transition. It's under system pref -> screensaver, set lower left to be mission control
+- set iterm hotkeys <command><alt><t>
+
+
+chrome extensions
+
+- [ ] 1password
+- [ ] privacy badger
+- [ ] ublock origin
+- [ ] hide youtube comments

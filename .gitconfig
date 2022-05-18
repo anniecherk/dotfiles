@@ -1,0 +1,35 @@
+[user]
+	email = annie.cherk@gmail.com
+	name = Annie Cherkaev
+[core]
+	editor = /usr/bin/vim 
+	excludesfile = /Users/annie/.gitignore_global
+[alias]
+    ci = commit
+    st = status
+    la = log --graph --decorate -n 4
+[merge]
+    tool = meld
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$PWD/$REMOTE\"
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
