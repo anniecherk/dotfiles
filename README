@@ -1,10 +1,12 @@
+# new machine dev setup 
+
 software to install
 
 - [ ] iterm
 - [ ] things3
 - [ ] 1password
 - [ ] github desktop
-
+- [ ] spotify
 
 cmdln
 
@@ -14,18 +16,26 @@ cmdln
 - [ ] brew install bat
 - [ ] brew install wget
 - [ ] brew install tldr
+- [ ] brew install meld
 - [ ] $(brew --prefix)/opt/fzf/install
 
 config
 
 - set colemak
 - hotcorners for desktop transition. It's under system pref -> screensaver, set lower left to be mission control
-- set iterm hotkeys <command><alt><t>
+- set iterm hotkey <command><alt><t>
+- set things hotkey <alt><t>
 
+fonts & themes
+
+- fira code
+- fairyfloss
 
 chrome extensions
 
 - [ ] 1password
 - [ ] privacy badger
+- [ ] https everywhere
 - [ ] ublock origin
 - [ ] hide youtube comments
+- [ ] vimium

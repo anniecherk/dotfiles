@@ -1,0 +1,11 @@
+unmap r
+unmap d
+unmap u
+
+map h scrollLeft
+map n scrollDown
+map e scrollUp
+map i scrollRight
+
+map H previousTab
+map I nextTab
