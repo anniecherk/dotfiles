@@ -25,6 +25,8 @@ config
 - hotcorners for desktop transition. It's under system pref -> screensaver, set lower left to be mission control
 - set iterm hotkey <command><alt><t>
 - set things hotkey <alt><t>
+- turn off autocomplete, smart quotes, etc (Sys Pref -> Keyboard -> text)
+- turn on always show file extensions
 
 fonts & themes
 
