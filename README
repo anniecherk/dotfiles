@@ -2,31 +2,22 @@
 
 software to install
 
-- [ ] iterm
+- [ ] iterm2
 - [ ] things3
-- [ ] 1password
+    - [ ] first set up an appleID to buy from apple store
 - [ ] github desktop
 - [ ] spotify
+- [ ] 1password
 
-cmdln
-
-- [ ] brew
-- [ ] brew install just
-- [ ] brew install autojump
-- [ ] brew install bat
-- [ ] brew install wget
-- [ ] brew install tldr
-- [ ] brew install meld
-- [ ] $(brew --prefix)/opt/fzf/install
+cmdln 
+--> try running `./install.sh`
 
 config
 
 - set colemak
-- hotcorners for desktop transition. It's under system pref -> screensaver, set lower left to be mission control
+- hotcorners for desktop transition. It's under system pref -> `Desktop and Dock`, set lower left to be mission control
 - set iterm hotkey <command><alt><t>
 - set things hotkey <alt><t>
-- turn off autocomplete, smart quotes, etc (Sys Pref -> Keyboard -> text)
-- turn on always show file extensions
 
 fonts & themes
 
@@ -41,3 +32,4 @@ chrome extensions
 - [ ] ublock origin
 - [ ] hide youtube comments
 - [ ] vimium
+- [ ] json formatter
