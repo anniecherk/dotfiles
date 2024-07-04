@@ -11,6 +11,7 @@ software to install
 
 cmdln 
 --> try running `./install.sh`
+- install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) & enable plugins
 
 config
 
