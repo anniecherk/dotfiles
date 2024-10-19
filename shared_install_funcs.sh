@@ -52,14 +52,15 @@ print_summary() {
             printf "%-30s : %s\n" "$description" "${results[$description]}"
         done
 
-        echo -e "\n❌ Error Details:"
-        echo "================="
-        for description in "${!error_messages[@]}"; do
-            if [[ ${results[$description]} == *"❌"* ]]; then
+        # Check if there are any failures by looking at the error_messages array
+        if [ ${#error_messages[@]} -gt 0 ]; then
+            echo -e "\n❌ Error Details:"
+            echo "================="
+            for description in "${!error_messages[@]}"; do
                 echo -e "\n$description:"
                 echo "${error_messages[$description]}"
-            fi
-        done
+            done
+        fi
 
         echo -e "\n🌞 Done! 💃🕺✨"
     } | tee "$log_file"
