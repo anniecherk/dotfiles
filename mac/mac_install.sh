@@ -5,26 +5,26 @@ echo "Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" || echo "Homebrew install failed"
 
 # ================================================================
-# STEP ONE: great god this is an awful place, get me dot files!
+# STEP ONE: great god this is an awful place, get me my shell!
 # ================================================================
 
 echo "Adding my aliases"
-cp .aliases ~/.aliases  
+cp ../.aliases ~/.aliases  
 
 echo "Adding my vimrc"
-cp .vimrc ~/.vimrc
+cp ../.vimrc ~/.vimrc
 
 echo "Adding my gitconfig"
-cp .gitconfig ~/.gitconfig
+cp ../.gitconfig ~/.gitconfig
 
 echo "Adding my bash_profile"
-cp .bash_profile ~/.bash_profile
+cp ../.bash_profile ~/.bash_profile
 
 echo "Adding my bashrc"
-cp .bashrc ~/.bashrc
+cp ../.bashrc ~/.bashrc
 
 echo "Adding my .paths"
-cp .paths ~/.paths
+cp ../.paths ~/.paths
 
 # Now set up zsh!
 
