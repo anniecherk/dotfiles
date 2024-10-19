@@ -34,7 +34,9 @@ copy_config_files() {
 # Function to set up zsh
 setup_zsh() {
     run_command "Installing oh-my-zsh" 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-    run_command "Adding my zshrc" "cp .zshrc ~/.zshrc"
+    run_command "Setting zsh as default shell" "echo 'export SHELL=/usr/bin/zsh' | tee -a $HOME/.bashrc"
+    run_command "Setting zsh as default shell" "echo 'exec /usr/bin/zsh' | tee -a $HOME/.bashrc"
+    run_command "Adding my zshrc" "cp ../.zshrc $HOME/.zshrc"
 }
 
 # Function to print summary and write to log file
