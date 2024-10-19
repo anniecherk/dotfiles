@@ -105,3 +105,4 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $(brew --prefix autojump)/etc/profile.d/autojump.sh ] && . $(brew --prefix autojump)/etc/profile.d/autojump.sh
