@@ -1,48 +1,49 @@
 #!/bin/bash
 
-# assuming we have git & curl installed
-# Update package lists
-echo "Updating package lists"
-sudo apt update || echo "Package list update failed"
+# Initialize associative arrays to store command results and error messages
+declare -A results
+declare -A error_messages
 
+# Function to run a command and store its result and error message
+run_command() {
+    local description=$1
+    local command=$2
+    echo "$description"
+    error_output=$(eval "$command" 2>&1 >/dev/null)
+    if [ $? -eq 0 ]; then
+        results["$description"]="✅ hell yeah"
+    else
+        results["$description"]="❌ hell no"
+        error_messages["$description"]="$error_output"
+        echo "$description failed"
+    fi
+}
+
+# Update package lists
+run_command "Updating package lists" "sudo apt update"
 
 # ================================================================
 # STEP ONE: great god this is an awful place, get me my shell!
 # ================================================================
 
-echo "Adding my aliases"
-cp ../.aliases ~/.aliases  
-
-echo "Adding my vimrc"
-cp ../.vimrc ~/.vimrc
-
-echo "Adding my gitconfig"
-cp ../.gitconfig ~/.gitconfig
-
-echo "Adding my bash_profile"
-cp ../.bash_profile ~/.bash_profile
-
-echo "Adding my bashrc"
-cp ../.bashrc ~/.bashrc
-
-echo "Adding my .paths"
-cp ../.paths ~/.paths
+# STEP ONE: Copy configuration files
+run_command "Adding my aliases" "cp ../.aliases ~/.aliases"
+run_command "Adding my vimrc" "cp ../.vimrc ~/.vimrc"
+run_command "Adding my gitconfig" "cp ../.gitconfig ~/.gitconfig"
+run_command "Adding my bash_profile" "cp ../.bash_profile ~/.bash_profile"
+run_command "Adding my bashrc" "cp ../.bashrc ~/.bashrc"
+run_command "Adding my .paths" "cp ../.paths ~/.paths"
 
 # Now set up zsh!
 
 # Install oh-my-zsh
-echo "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" || echo "oh-my-zsh install failed"
+run_command "Installing oh-my-zsh" "sh -c \"$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\""
 
 # add my zshrc
-echo "Adding my zshrc"
-cp .zshrc ~/.zshrc
+run_command "Adding my zshrc" "cp .zshrc ~/.zshrc"
 
-# install zsh-autosuggestions
-echo "Installing zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || echo "zsh-autosuggestions install failed"
-# zsh-autosuggestions needs to be added to path, but it's already in my zshrc
-
+# Install zsh-autosuggestions
+run_command "Installing zsh-autosuggestions" "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 # ================================================================
 # STEP TWO: time 4 nice to haves
@@ -57,33 +58,28 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # git clone https://mpr.makedeb.org/just && cd just && makedeb -si
 # ^ commenting out for now b/c you have to manually install makedeb first augh
 
-# Install autojump
-echo "Installing autojump"
-sudo apt install autojump -y || echo "autojump install failed"
-# autojump needs to be added to path, but it's already in my zshrc
+# STEP TWO: Install additional tools
+run_command "Installing autojump" "sudo apt install autojump -y"
+run_command "Installing meld" "sudo apt install meld -y"
+run_command "Installing wget" "sudo apt install wget -y"
+run_command "Installing tldr" "sudo apt install tldr -y"
+run_command "Installing jq" "sudo apt install jq -y"
 
-# Install bat (batcat on Ubuntu)
-# bat has an unpatched vuln on 20 & 22... nice. let's skip
-# echo "Installing bat"
-# sudo apt install bat -y || echo "bat install failed"
+# Print summary
+echo -e "\n🌟💃🕺 Installation Summary 🐧"
+echo "================================="
+for description in "${!results[@]}"; do
+    printf "%-30s : %s\n" "$description" "${results[$description]}"
+done
 
-# Install meld
-echo "Installing meld"
-sudo apt install meld -y || echo "meld install failed"
+# Print error messages for failed commands
+echo -e "\n❌ Error Details:"
+echo "================="
+for description in "${!error_messages[@]}"; do
+    if [[ ${results[$description]} == *"Failed"* ]]; then
+        echo -e "\n$description:"
+        echo "${error_messages[$description]}"
+    fi
+done
 
-# Install wget
-echo "Installing wget"
-sudo apt install wget -y || echo "wget install failed"
-
-# Install tldr
-echo "Installing tldr"
-sudo apt install tldr -y || echo "tldr install failed"
-
-# Install jq
-echo "Installing jq"
-sudo apt install jq -y || echo "jq install failed"
-
-
-# We did it!
-echo "🌟💃🕺 Done! 🐧"
-
+echo -e "\nDone! 🎉"
