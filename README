@@ -10,7 +10,19 @@ software to install
 - [ ] 1password
 
 cmdln 
-- either `./mac/mac_install.sh` or `./ubuntu/ubuntu_install.sh`
+
+the install scripts have relative imports, so they need to be run from the directory containing them
+
+so either: 
+```
+cd mac
+./mac_install.sh
+```
+or 
+```
+cd ubuntu
+./ubuntu_install.sh
+```
 
 
 config
