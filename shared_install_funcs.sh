@@ -36,7 +36,8 @@ setup_zsh() {
     run_command "Installing oh-my-zsh" 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
     run_command "Setting zsh as default shell" "echo 'export SHELL=/usr/bin/zsh' | tee -a $HOME/.bashrc"
     run_command "Setting zsh as default shell" "echo 'exec /usr/bin/zsh' | tee -a $HOME/.bashrc"
-    run_command "Adding my zshrc" "cp ../.zshrc $HOME/.zshrc"
+    # sharp corner notice: the zshrc is the only one dotfile in the OS specific directory!
+    run_command "Adding my zshrc" "cp .zshrc $HOME/.zshrc"
 }
 
 # Function to print summary and write to log file
