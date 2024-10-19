@@ -3,7 +3,7 @@
 	name = Annie Cherkaev
 [core]
 	editor = /usr/bin/vim 
-	excludesfile = /Users/annie/.gitignore_global
+	# excludesfile = /Users/annie/.gitignore_global
 [alias]
     ci = commit
     st = status

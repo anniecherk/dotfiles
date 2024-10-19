@@ -10,8 +10,8 @@ software to install
 - [ ] 1password
 
 cmdln 
---> try running `./install.sh`
-- install [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh) & enable plugins
+- either `./mac/mac_install.sh` or `./ubuntu/ubuntu_install.sh`
+
 
 config
 

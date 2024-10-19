@@ -30,6 +30,8 @@ command Clear let @/=""
 
 "Set jj to escape from insert mode.
 inoremap jj <Esc>
+"nn to replicate the effect in Colemak.
+inoremap nn <Esc>
 
 "Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'
