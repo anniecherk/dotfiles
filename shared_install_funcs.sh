@@ -37,22 +37,29 @@ setup_zsh() {
     run_command "Adding my zshrc" "cp .zshrc ~/.zshrc"
 }
 
-# Function to print summary
+# Function to print summary and write to log file
 print_summary() {
-    echo -e "\n🌟💃🕺 Installation Summary $1"
-    echo "================================="
-    for description in "${!results[@]}"; do
-        printf "%-30s : %s\n" "$description" "${results[$description]}"
-    done
+    local summary_title="$1"
+    local log_file="install_summary_$(date +%Y%m%d_%H%M%S).log"
 
-    echo -e "\n❌ Error Details:"
-    echo "================="
-    for description in "${!error_messages[@]}"; do
-        if [[ ${results[$description]} == *"Failed"* ]]; then
-            echo -e "\n$description:"
-            echo "${error_messages[$description]}"
-        fi
-    done
+    {
+        echo -e "\n🌟💃🕺 Installation Summary: $summary_title"
+        echo "================================="
+        for description in "${!results[@]}"; do
+            printf "%-30s : %s\n" "$description" "${results[$description]}"
+        done
 
-    echo -e "\n🌞 Done! 💃🕺✨"
+        echo -e "\n❌ Error Details:"
+        echo "================="
+        for description in "${!error_messages[@]}"; do
+            if [[ ${results[$description]} == *"❌"* ]]; then
+                echo -e "\n$description:"
+                echo "${error_messages[$description]}"
+            fi
+        done
+
+        echo -e "\n🌞 Done! 💃🕺✨"
+    } | tee "$log_file"
+
+    echo -e "\nSummary and error log have been saved to: $log_file"
 }
