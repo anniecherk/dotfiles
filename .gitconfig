@@ -8,6 +8,9 @@
     ci = commit
     st = status
     la = log --graph --decorate -n 4
+    branch-hist = "!f() { for i in $(seq 1 $1); do git name-rev --name-only --exclude=refs/tags/\\* @{-$i}; done; }; f"
+         last-branch = "! git branch-hist 1"
+         lb = 'last-branch'
 [merge]
     tool = meld
 [credential]
