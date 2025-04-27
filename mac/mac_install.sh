@@ -24,6 +24,7 @@ run_command "Installing wget" "brew install wget"
 run_command "Installing tldr" "brew install tldr"
 run_command "Installing meld" "brew install meld"
 run_command "Installing jq" "brew install jq"
+run_command "Installing ag" "brew install the_silver_searcher"
 
 # Install xcode
 run_command "Installing xcode" "xcode-select --install"
