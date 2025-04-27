@@ -22,6 +22,7 @@ run_command "Installing meld" "sudo apt install meld -y"
 run_command "Installing wget" "sudo apt install wget -y"
 run_command "Installing tldr" "sudo apt install tldr -y"
 run_command "Installing jq" "sudo apt install jq -y"
+run_command "Installing ag" "sudo apt-get install silversearcher-ag"
 
 # Print summary
 print_summary "🐧"
