@@ -3,3 +3,6 @@
 
 alias ls='ls -G'
 alias ll='ls -al'
+
+# show me the 10 most recent git branches in this repo
+alias recent="git for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short)' | head -n 10"
